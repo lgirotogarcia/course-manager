@@ -3,7 +3,7 @@ import { Course } from "./course"
 import { CourseService } from "./course.service";
 @Component (
     { // Caracteristicas que o component terá
-        selector: 'app-course-list', //Onde tiver app será uma referencia a algum componente na nossa aplicação
+        // selector: 'app-course-list', //Onde tiver app será uma referencia a algum componente na nossa aplicação. Por usar rota, não é mais necessário o selector.  A referencia agora será link de rotas.
         templateUrl: './course-list.component.html'        
     }
 )

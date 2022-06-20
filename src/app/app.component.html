@@ -1,3 +1,5 @@
-<div class="container">
-    <app-course-list></app-course-list>
+<nav-bar-component></nav-bar-component>
+<div class="container mt-4">
+    <!-- <app-course-list></app-course-list> --> <!--Não será mais usado por causa das rotas. O componente será exibido pela rota da URL usada..-->
+    <router-outlet></router-outlet><!--O switch (a troca) de rota será feito no escopo dessa tag NESTE CASO. Cada aplicação tem seu switch no seu lugar específico. Não necessariamente no mesmo lugar.-->
 </div>
