@@ -1,5 +1,12 @@
 <h2> Course List </h2>
 
+<div class="form-group row">
+    <label for="" class="col-sm-2 col-form-label">Filter By</label>
+    <div class="col-sm-10">
+        <input type="text" [(ngModel)]="filter" class="form-control">
+    </div>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -15,14 +22,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let course of courses"> <!--*ngFor é uma sintaxe do Angular para fazer iteração dos elementos, nesse caso, dos cursos -->
+        <tr *ngFor="let course of filteredCourses"> <!--*ngFor é uma sintaxe do Angular para fazer iteração dos elementos, nesse caso, dos cursos -->
             <td>{{ course.id }}</td>
             <td><img [src]="course.imgUrl" width='35' alt="course img"></td>
             <td>{{ course.name }}</td>
             <td>{{ course.price }}</td>
             <td>{{ course.duration }}</td>
-            <td>{{ course.code }}</td>
-            <td>{{ course.releaseDate }}</td>
+            <td>{{ course.code | lowercase | replace:'-': ' '}}</td> <!-- "|" indica um pipe para alteração no front-end, nesse caso, é um pipe nativo do Angular, de lowercase. O segundo pipe foi criado em ../pipe/replace.pipe.ts para alterar o '-' por um espaço (' ')-->
+            <td>{{ course.releaseDate | date: 'yyyy.MM.dd' }}</td> <!-- Os Pipes servem para trazer funções no HTML para alteração do front. No caso,com a notação de: Dia: dd, Mês: MM, e Ano: yyyy ou YYYY-->
             <td>
                 <app-star [rating]="course.rating"></app-star>
             </td>
