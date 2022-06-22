@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { ReplacePipe } from "./replace.pipe";
 @NgModule ({
     declarations: [
-        ReplacePipe,
+        ReplacePipe
     ],
     exports: [
-        ReplacePipe,
+        ReplacePipe
     ]
 })
 

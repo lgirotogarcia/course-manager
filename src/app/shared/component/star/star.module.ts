@@ -3,11 +3,11 @@ import { StarComponent } from "./star.component";
 
 @NgModule ({
     declarations: [
-        StarComponent,
+        StarComponent
     ],
 
     exports: [
-        StarComponent,
+        StarComponent
     ]
 })
 

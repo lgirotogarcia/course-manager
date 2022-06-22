@@ -11,7 +11,7 @@ import { AppPipeModule } from "../shared/pipe/app-pipe.module";
 @NgModule ({
     declarations: [
         CourseListComponent,
-        CourseEditComponent,
+        CourseEditComponent
     ],
     imports: [
         FormsModule,
