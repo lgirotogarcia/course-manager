@@ -1,4 +1,6 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { Course } from "./course"
 
 @Injectable ({
@@ -7,8 +9,27 @@ import { Course } from "./course"
 })
 
 export class CourseService {
-    retrieveAll(): Course[] {
-        return courses
+
+    private coursesUrl: string = 'http://localhost:3100/api/courses'
+
+    constructor(private httpClient: HttpClient) {
+
+    }
+
+    retrieveAll(): Observable<Course[]> {
+        return this.httpClient.get<Course[]>(this.coursesUrl);
+    }
+
+    retrieveById(id: number): Observable<Course> {
+        return this.httpClient.get<Course>(`${this.coursesUrl}/${id}`)
+    }
+
+    save(course: Course): Observable<Course> {
+        if(course.id) {
+            return this.httpClient.put<Course>(`${this.coursesUrl}/${course.id}`, course);
+        } else {
+            return this.httpClient.post<Course>(`${this.coursesUrl}`, course);
+        }
     }
 }
 
@@ -22,7 +43,7 @@ let courses: Course[] = [
         code: 'xlf-1212',
         rating: 3,
         price: 12.99,
-        imgUrl: '../assets/img/cli.png',
+        imgUrl: 'C:\\Users\\leona\\Desktop\\Codes\\DIO\\angular\\course-manager\\src\\assets\\img\\cli.png',
     },
     {
         id: 2,
@@ -33,7 +54,7 @@ let courses: Course[] = [
         code: 'DWQ-3412',
         rating: 3.5,
         price: 24.99,
-        imgUrl: '../assets/img/forms.png',
+        imgUrl: 'C:\\Users\\leona\\Desktop\\Codes\\DIO\\angular\\course-manager\\src\\assets\\img\\forms.png',
     },
     {
         id: 3,
@@ -44,7 +65,7 @@ let courses: Course[] = [
         code: 'QPL-0913',
         rating: 4.0,
         price: 36.99,
-        imgUrl: '../assets/img/http.png',
+        imgUrl: 'C:\\Users\\leona\\Desktop\\Codes\\DIO\\angular\\course-manager\\src\\assets\\img\\http.png',
     },
     {
         id: 4,
@@ -55,7 +76,7 @@ let courses: Course[] = [
         code: 'OHP-1095',
         rating: 4.5,
         price: 46.99,
-        imgUrl: '../assets/img/router.png',
+        imgUrl: 'C:\\Users\\leona\\Desktop\\Codes\\DIO\\angular\\course-manager\\src\\assets\\img\\router.png',
     },
     {
         id: 5,
@@ -66,6 +87,6 @@ let courses: Course[] = [
         code: 'PWY-9381',
         rating: 5,
         price: 56.99,
-        imgUrl: '../assets/img/animations.png',
+        imgUrl: 'C:\\Users\\leona\\Desktop\\Codes\\DIO\\angular\\course-manager\\src\\assets\\img\\animations.png',
     }
 ];
