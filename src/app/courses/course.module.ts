@@ -3,22 +3,21 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
-import { ReplacePipe } from "../pipe/replace.pipe";
-import { StarComponent } from "../star/star.component";
+import { StarModule } from "../shared/component/star/star.module";
 import { CourseEditComponent } from "./course-edit.component";
 import { CourseListComponent } from "./course-list.component";
+import { AppPipeModule } from "../shared/pipe/app-pipe.module";
 
 @NgModule ({
     declarations: [
         CourseListComponent,
         CourseEditComponent,
-        ReplacePipe,
-        StarComponent,
     ],
     imports: [
         FormsModule,
         CommonModule,
-        FormsModule,
+        AppPipeModule,
+        StarModule,
         RouterModule.forChild([
             { // Objeto de rota de listagem de cursos
                 path: 'courses', // Path da rota faz referência ao /courses.
