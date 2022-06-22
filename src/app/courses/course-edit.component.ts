@@ -14,10 +14,10 @@ export class CourseEditComponent implements OnInit{
     }
 
     ngOnInit(): void {
-         this.courseService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
+         this.courseService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({// O "+" converte a string para número, o "!" para tirar a necessidade de uma condicional para confirmar se não é null.
             next: course =>  this.course = course,
             error: err => console.log('Error: ', err)
-         })  // O "+" converte a string para número, o "!" para tirar a necessidade de uma condicional para confirmar se não é null.
+         })  
     }
 
     save(): void {

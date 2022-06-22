@@ -65,7 +65,7 @@ var COURSES = [
         code: 'XLF-1212',
         rating: 3,
         price: 12.99,
-        imageUrl: './assets/img/cli.png',
+        imgUrl: './assets/img/cli.png',
     },
     {
         id: 2,
@@ -76,7 +76,7 @@ var COURSES = [
         code: 'DWQ-3412',
         rating: 3.5,
         price: 24.99,
-        imageUrl: './assets/img/forms.png',
+        imgUrl: './assets/img/forms.png',
     },
     {
         id: 3,
@@ -87,7 +87,7 @@ var COURSES = [
         code: 'QPL-0913',
         rating: 4.0,
         price: 36.99,
-        imageUrl: './assets/img/http.png',
+        imgUrl: './assets/img/http.png',
     },
     {
         id: 4,
@@ -98,7 +98,7 @@ var COURSES = [
         code: 'OHP-1095',
         rating: 4.5,
         price: 46.99,
-        imageUrl: './assets/img/router.png',
+        imgUrl: './assets/img/router.png',
     },
     {
         id: 5,
@@ -109,6 +109,6 @@ var COURSES = [
         code: 'PWY-9381',
         rating: 5,
         price: 56.99,
-        imageUrl: './assets/img/animations.png',
+        imgUrl: './assets/img/animations.png',
     }
 ];

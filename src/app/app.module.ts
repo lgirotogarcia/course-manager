@@ -5,38 +5,23 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { CourseListComponent } from './courses/course-list.component';
-import { StarComponent } from './star/star.component'
-import { ReplacePipe } from './pipe/replace.pipe';
 import { NavBarComponent } from './nav-bar/navBar.component';
 import { Error404Component } from './error-404/error-404.component';
-import { CourseEditComponent } from './courses/course-edit.component';
+import { CourseModule } from './courses/course.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent,
-    StarComponent,
-    ReplacePipe,
     NavBarComponent,
-    Error404Component,
-    CourseEditComponent,
-  
+    Error404Component,  
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    CourseModule,
     RouterModule.forRoot([ // Serão usadas as rotas padrões do Angular para essa aplicação. Elas servem para fazer a refência dos componentes via URL
-      { // Objeto de rota de listagem de cursos
-        path: 'courses', // Path da rota faz referência ao /courses.
-        component: CourseListComponent // Quando nesse path, exibe o CourseListComponent no escopo declarado em app.component.html.
-      },
-      {
-        path: 'courses/edit/:id', // Para acessar um path de uma "lista", como nesse caso, é usado o ID para acessar um path específico. Então, para acessar o ID, é usado após o "último" caminho, ":id". 
-        component: CourseEditComponent
-      },
-      { // Objeto de rota do path base da aplicação
+            { // Objeto de rota do path base da aplicação
         path: '', // ROTA PADRÃO. Path vazio faz referência a raíz da aplicação.
         redirectTo: 'courses', // Redirecionará para /courses na URL.
         pathMatch: 'full'
